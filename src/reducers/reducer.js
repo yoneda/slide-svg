@@ -1,30 +1,13 @@
-import { ADD_COUNT, SUB_COUNT, RESET_COUNT } from "../constants/constants.js";
+import { OPEN_MENU, CLOSE_MENU, MOVE_NEXT_SLIDE, MOVE_PREV_SLIDE, CONVERT_MARKDOWN_TO_HTML } from "../constants/constants.js";
 
 const reducer = (state={},action)=>{
-  if(action.type===ADD_COUNT){
-    const num = action.payload.num;
-    const newState = {
-      count: state.count + num
-    }
-    
-    return newState;
-  }
-  else if(action.type===SUB_COUNT){
-    const num = action.payload.num;
-    const newState = {
-      count: state.count - num
-    }
-    return newState;
-  }
-  else if(action.type===RESET_COUNT){
-    const newState = {
-      count: 0
-    }
-    return newState;
-  }
-  else{
+  if(true){
     const initialState = {
-      count: 1
+      isMenuOpen: true,
+      showProgressBar: true,
+      index: 0,
+      slides: ["aaa","bbb","ccc"],
+      rawMarkdown: "## aaa\n --- ## bbb\n --- ccc\n"
     }
     return initialState;
   }
