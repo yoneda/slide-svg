@@ -1,21 +1,13 @@
-import { ADD_COUNT, SUB_COUNT, RESET_COUNT } from "../constants/constants.js";
+import { OPEN_MENU, CLOSE_MENU, MOVE_NEXT_SLIDE, MOVE_PREV_SLIDE, CONVERT_MARKDOWN_TO_HTML } from "../constants/constants.js";
 
-export const getAddCount = (num) => {
+export const getMoveNextSlide = () => {
   return {
-    type: ADD_COUNT,
-    payload: {num: num}
+    type: MOVE_NEXT_SLIDE
   }
 }
 
-export const getSubCount = (num) => {
+export const getMovePrevSlide = () => {
   return {
-    type:  SUB_COUNT,
-    payload: {num: num}
-  }
-}
-
-export const getResetCount = () => {
-  return {
-    type: RESET_COUNT
+    type: MOVE_PREV_SLIDE
   }
 }
