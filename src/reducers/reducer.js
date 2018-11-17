@@ -1,21 +1,22 @@
-import { ADD_COUNTER, SUB_COUNTER, RESET_COUNTER } from "../constants/constants.js";
+import { ADD_COUNT, SUB_COUNT, RESET_COUNT } from "../constants/constants.js";
 
 const reducer = (state={},action)=>{
-  if(action.type===ADD_COUNTER){
+  if(action.type===ADD_COUNT){
     const num = action.payload.num;
     const newState = {
       count: state.count + num
     }
+    
     return newState;
   }
-  else if(action.type===SUB_COUNTER){
+  else if(action.type===SUB_COUNT){
     const num = action.payload.num;
     const newState = {
       count: state.count - num
     }
     return newState;
   }
-  else if(action.type===RESET_COUNTER){
+  else if(action.type===RESET_COUNT){
     const newState = {
       count: 0
     }

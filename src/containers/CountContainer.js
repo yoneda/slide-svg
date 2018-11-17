@@ -2,13 +2,14 @@ import React from "react";
 import { connect } from 'react-redux'
 import Buttons from "../components/Buttons.js";
 import Display from "../components/Display.js";
-import { getAddCounter, getSubCounter, getResetCounter } from "../actions/actions.js";
+import { getAddCount, getSubCount, getResetCount } from "../actions/actions.js";
 
-const CountContainer = ({ count, addCountHandler, subCountHandler, resetCounterHandler }) => {
+const CountContainer = ({ count, addCountHandler, subCountHandler, resetCountHandler }) => {
+  
   return(
     <div>
       <Display count={count} />
-      <Buttons />
+      <Buttons addCountHandler={addCountHandler} subCountHandler={subCountHandler} resetCountHandler={resetCountHandler}/>
     </div>
   )
 }
@@ -20,13 +21,13 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-  const addCounterAction = getAddCounter(1);
-  const subCounterAction = getSubCounter(1);
-  const resetCounterAction = getResetCounter();
+  const addCountAction = getAddCount(1);
+  const subCountAction = getSubCount(1);
+  const resetCountAction = getResetCount();
   return{
-    addCountHandler : (num) => dispatch(addCounterAction),
-    subCountHandler : (num) => dispatch(subCounterAction),
-    resetCounterHandler : (num) => dispatch(resetCounterAction)
+    addCountHandler : (num) => dispatch(addCountAction),
+    subCountHandler : (num) => dispatch(subCountAction),
+    resetCountHandler : (num) => dispatch(resetCountAction)
   }
 }
 

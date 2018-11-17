@@ -1,10 +1,10 @@
 import React from "react";
 
-const Buttons = () => {
+const Buttons = ({addCountHandler, subCountHandler, resetCountHandler}) => {
   return(
     <div>
-      <button onClick={()=>console.log("aa")}>add</button>
-      <button onClick={()=>console.log("aa")}>sub</button>
+      <button onClick={addCountHandler}>add</button>
+      <button onClick={subCountHandler}>sub</button>
     </div>
   )
 }

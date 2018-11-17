@@ -1,21 +1,21 @@
-import { ADD_COUNTER, SUB_COUNTER, RESET_COUNTER } from "../constants/constants.js";
+import { ADD_COUNT, SUB_COUNT, RESET_COUNT } from "../constants/constants.js";
 
-export const getAddCounter = (num) => {
+export const getAddCount = (num) => {
   return {
-    type: ADD_COUNTER,
-    payload: num
+    type: ADD_COUNT,
+    payload: {num: num}
   }
 }
 
-export const getSubCounter = (num) => {
+export const getSubCount = (num) => {
   return {
-    type:  SUB_COUNTER,
-    payload: num
+    type:  SUB_COUNT,
+    payload: {num: num}
   }
 }
 
-export const getResetCounter = (num) => {
+export const getResetCount = () => {
   return {
-    type: RESET_COUNTER
+    type: RESET_COUNT
   }
 }

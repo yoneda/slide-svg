@@ -1,4 +1,4 @@
 
-export const ADD_COUNTER = "ADD_COUNTER";
-export const SUB_COUNTER = "SUB_COUNTER";
-export const RESET_COUNTER = "RESET_COUNTER";
+export const ADD_COUNT = "ADD_COUNT";
+export const SUB_COUNT = "SUB_COUNT";
+export const RESET_COUNT = "RESET_COUNT";
