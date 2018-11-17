@@ -1,9 +1,9 @@
 import React from "react";
 
-const Display = () => {
+const Display = ({count}) => {
   return(
     <div>
-      <p>counter: 0</p>
+      <p>counter: {count}</p>
     </div>
   )
 }
