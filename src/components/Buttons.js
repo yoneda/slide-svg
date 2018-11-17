@@ -5,6 +5,7 @@ const Buttons = ({addCountHandler, subCountHandler, resetCountHandler}) => {
     <div>
       <button onClick={addCountHandler}>add</button>
       <button onClick={subCountHandler}>sub</button>
+      <button onClick={resetCountHandler}>reset</button>
     </div>
   )
 }
