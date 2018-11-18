@@ -6,7 +6,6 @@ import PrevButton from "../components/PrevButton.js";
 import { getMoveNextSlide, getMovePrevSlide } from "../actions/actions.js";
 
 const AppContainer = ({ slides, index, moveNextSlideHandler, movePrevSlideHandler }) => {
-  // TODO: slidesのバリデーションを追加
   return(
     <div>
       <h2>slide app</h2>
