@@ -7,7 +7,7 @@ import ProgressBar from "../components/ProgressBar.js";
 import { getMoveNextSlide, getMovePrevSlide } from "../actions/actions.js";
 
 const AppContainer = ({ slides, index, moveNextSlideHandler, movePrevSlideHandler }) => {
-  const parcentage = (index/slides.length)*100;
+  const parcentage = (index/(slides.length-1))*100;
   return(
     <div>
       <h2>slide app</h2>
