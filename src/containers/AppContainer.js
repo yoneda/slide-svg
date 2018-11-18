@@ -1,12 +1,17 @@
 import React from "react";
 import { connect } from 'react-redux'
 import Slide from "../components/Slide.js";
+import NextButton from "../components/NextButton.js";
+import PrevButton from "../components/PrevButton.js";
+import { getMoveNextSlide, getMovePrevSlide } from "../actions/actions.js";
 
-const AppContainer = ({ slides, index }) => {
+const AppContainer = ({ slides, index, moveNextSlideHandler, movePrevSlideHandler }) => {
   // TODO: slidesのバリデーションを追加
   return(
     <div>
-      <p>test</p>
+      <h2>slide app</h2>
+      <NextButton moveNextSlideHandler={moveNextSlideHandler}/>
+      <PrevButton movePrevSlideHandler={movePrevSlideHandler}/>
       <Slide text={slides[index]} />
     </div>
   )
@@ -22,16 +27,14 @@ const mapStateToProps = state => {
   }
 }
 
-/*
-const mapDispatchToProps = dispatch => {
-  const addCountAction = getAddCount(1);
-  const subCountAction = getSubCount(1);
-  const resetCountAction = getResetCount();
-  return{
-    addCountHandler : (num) => dispatch(addCountAction),
-    subCountHandler : (num) => dispatch(subCountAction),
-    resetCountHandler : (num) => dispatch(resetCountAction)
-  }
-}*/
 
-export default connect(mapStateToProps)(AppContainer)
+const mapDispatchToProps = dispatch => {
+  const moveNextSlideAction = getMoveNextSlide();
+  const movePrevSlideAction = getMovePrevSlide();
+  return{
+    moveNextSlideHandler : () => dispatch(moveNextSlideAction),
+    movePrevSlideHandler : () => dispatch(movePrevSlideAction)
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(AppContainer)
