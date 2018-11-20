@@ -4,9 +4,10 @@ import Slide from "../components/Slide.js";
 import NextButton from "../components/NextButton.js";
 import PrevButton from "../components/PrevButton.js";
 import ProgressBar from "../components/ProgressBar.js";
-import { getMoveNextSlide, getMovePrevSlide } from "../actions/actions.js";
+import SettingBox from "../components/SettingBox.js";
+import { getMoveNextSlide, getMovePrevSlide, getChangeProgressBarOn, getChangeProgressBarOff } from "../actions/actions.js";
 
-const AppContainer = ({ slides, index, moveNextSlideHandler, movePrevSlideHandler }) => {
+const AppContainer = ({ slides, index, isProgressBarAppeared, moveNextSlideHandler, movePrevSlideHandler, changeProgressBarOnHandler, changeProgressBarOffHandler}) => {
   const parcentage = (index/(slides.length-1))*100;
   return(
     <div>
@@ -14,7 +15,8 @@ const AppContainer = ({ slides, index, moveNextSlideHandler, movePrevSlideHandle
       <NextButton moveNextSlideHandler={moveNextSlideHandler}/>
       <PrevButton movePrevSlideHandler={movePrevSlideHandler}/>
       <Slide text={slides[index]} />
-      <ProgressBar parcentage={parcentage} />
+      {isProgressBarAppeared?<ProgressBar parcentage={parcentage} />:""}
+      <SettingBox isProgressBarAppeared={isProgressBarAppeared} changeProgressBarOnHandler={changeProgressBarOnHandler} changeProgressBarOffHandler={changeProgressBarOffHandler} />
     </div>
   )
 }
@@ -22,7 +24,7 @@ const AppContainer = ({ slides, index, moveNextSlideHandler, movePrevSlideHandle
 const mapStateToProps = state => {
   return{
     isMenuOpen: state.isMenuOpen,
-    showProgressBar: state.showProgressBar,
+    isProgressBarAppeared: state.isProgressBarAppeared,
     index: state.index,
     slides: state.slides,
     rawMarkdown: state.rawMarkdown
@@ -33,10 +35,14 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   const moveNextSlideAction = getMoveNextSlide();
   const movePrevSlideAction = getMovePrevSlide();
+  const changeProgressBarOnAction = getChangeProgressBarOn();
+  const changeProgressBarOffAction = getChangeProgressBarOff();
   return{
     moveNextSlideHandler : () => dispatch(moveNextSlideAction),
-    movePrevSlideHandler : () => dispatch(movePrevSlideAction)
+    movePrevSlideHandler : () => dispatch(movePrevSlideAction),
+    changeProgressBarOnHandler : () => dispatch(changeProgressBarOnAction),
+    changeProgressBarOffHandler : () => dispatch(changeProgressBarOffAction),
   }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(AppContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(AppContainer)
