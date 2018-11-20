@@ -1,4 +1,4 @@
-import { OPEN_MENU, CLOSE_MENU, MOVE_NEXT_SLIDE, MOVE_PREV_SLIDE, CONVERT_MARKDOWN_TO_HTML, CHANGE_PROGRESSBAR_ON, CHANGE_PROGRESSBAR_OFF } from "../constants/constants.js";
+import { OPEN_MENU, CLOSE_MENU, MOVE_NEXT_SLIDE, MOVE_PREV_SLIDE, CONVERT_MARKDOWN_TO_HTML, CHANGE_PROGRESSBAR_ON, CHANGE_PROGRESSBAR_OFF, READ_RAWMARKDOWN_SUCCESS } from "../constants/constants.js";
 
 const reducer = (state={},action)=>{
   if(action.type===MOVE_NEXT_SLIDE){
@@ -42,6 +42,17 @@ const reducer = (state={},action)=>{
       index: state.index,
       slides: state.slides,
       rawMarkdown: state.rawMarkdown
+    }
+    return newState;
+  }
+  else if(action.type===READ_RAWMARKDOWN_SUCCESS){
+    const rawMarkdown = action.payload.raw;
+    const newState = {
+      isMenuOpen: state.isMenuOpen,
+      isProgressBarAppeared: false,
+      index: state.index,
+      slides: state.slides,
+      rawMarkdown: rawMarkdown
     }
     return newState;
   }

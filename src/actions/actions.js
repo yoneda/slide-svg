@@ -1,4 +1,4 @@
-import { OPEN_MENU, CLOSE_MENU, MOVE_NEXT_SLIDE, MOVE_PREV_SLIDE, CONVERT_MARKDOWN_TO_HTML, CHANGE_PROGRESSBAR_ON, CHANGE_PROGRESSBAR_OFF } from "../constants/constants.js";
+import { OPEN_MENU, CLOSE_MENU, MOVE_NEXT_SLIDE, MOVE_PREV_SLIDE, CONVERT_MARKDOWN_TO_HTML, CHANGE_PROGRESSBAR_ON, CHANGE_PROGRESSBAR_OFF, READ_RAWMARKDOWN_SUCCESS} from "../constants/constants.js";
 
 export const getMoveNextSlide = () => {
   return {
@@ -21,5 +21,12 @@ export const getChangeProgressBarOn = () => {
 export const getChangeProgressBarOff = () => {
   return {
     type: CHANGE_PROGRESSBAR_OFF,
+  }
+}
+
+export const readRawMarkdownSuccess = (raw) => {
+  return {
+    type: READ_RAWMARKDOWN_SUCCESS,
+    payload: {raw: raw}
   }
 }

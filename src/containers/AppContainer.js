@@ -5,7 +5,7 @@ import NextButton from "../components/NextButton.js";
 import PrevButton from "../components/PrevButton.js";
 import ProgressBar from "../components/ProgressBar.js";
 import SettingBox from "../components/SettingBox.js";
-import { getMoveNextSlide, getMovePrevSlide, getChangeProgressBarOn, getChangeProgressBarOff } from "../actions/actions.js";
+import { getMoveNextSlide, getMovePrevSlide, getChangeProgressBarOn, getChangeProgressBarOff, readRawMarkdownSuccess} from "../actions/actions.js";
 
 const AppContainer = ({ slides, index, isProgressBarAppeared, moveNextSlideHandler, movePrevSlideHandler, changeProgressBarOnHandler, changeProgressBarOffHandler}) => {
   const parcentage = (index/(slides.length-1))*100;
