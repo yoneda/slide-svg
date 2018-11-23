@@ -3,20 +3,21 @@ import { connect } from 'react-redux'
 import Slide from "../components/Slide.js";
 import NextButton from "../components/NextButton.js";
 import PrevButton from "../components/PrevButton.js";
-import ProgressBar from "../components/ProgressBar.js";
+import SettingButton from "../components/SettingButton.js";
 import SettingBox from "../components/SettingBox.js";
-import { getMoveNextSlide, getMovePrevSlide, getChangeProgressBarOn, getChangeProgressBarOff, readRawMarkdownSuccess} from "../actions/actions.js";
+import ProgressBar from "../components/ProgressBar.js";
+import { getMoveNextSlide, getMovePrevSlide, getChangeProgressBarOn, getChangeProgressBarOff, getOpenMenu, getCloseMenu} from "../actions/actions.js";
 
-const AppContainer = ({ slides, index, isProgressBarAppeared, moveNextSlideHandler, movePrevSlideHandler, changeProgressBarOnHandler, changeProgressBarOffHandler}) => {
+const AppContainer = ({ isMenuOpen, isProgressBarAppeared, slides, index, moveNextSlideHandler, movePrevSlideHandler, changeProgressBarOnHandler, changeProgressBarOffHandler, openMenuHandler, closeMenuHandler}) => {
   const parcentage = (index/(slides.length-1))*100;
   return(
     <div>
-      <h2>slide app</h2>
       <NextButton moveNextSlideHandler={moveNextSlideHandler}/>
       <PrevButton movePrevSlideHandler={movePrevSlideHandler}/>
+      <SettingButton isMenuOpen={isMenuOpen} openMenuHandler={openMenuHandler} closeMenuHandler={closeMenuHandler} />
       <Slide text={slides[index]} />
       {isProgressBarAppeared?<ProgressBar parcentage={parcentage} />:""}
-      <SettingBox isProgressBarAppeared={isProgressBarAppeared} changeProgressBarOnHandler={changeProgressBarOnHandler} changeProgressBarOffHandler={changeProgressBarOffHandler} />
+      {isMenuOpen?<SettingBox isProgressBarAppeared={isProgressBarAppeared} changeProgressBarOnHandler={changeProgressBarOnHandler} changeProgressBarOffHandler={changeProgressBarOffHandler} />:""}
     </div>
   )
 }
@@ -37,11 +38,15 @@ const mapDispatchToProps = dispatch => {
   const movePrevSlideAction = getMovePrevSlide();
   const changeProgressBarOnAction = getChangeProgressBarOn();
   const changeProgressBarOffAction = getChangeProgressBarOff();
+  const openMenuAction = getOpenMenu();
+  const closeMenuAction = getCloseMenu();
   return{
     moveNextSlideHandler : () => dispatch(moveNextSlideAction),
     movePrevSlideHandler : () => dispatch(movePrevSlideAction),
     changeProgressBarOnHandler : () => dispatch(changeProgressBarOnAction),
     changeProgressBarOffHandler : () => dispatch(changeProgressBarOffAction),
+    openMenuHandler : () => dispatch(openMenuAction),
+    closeMenuHandler : () => dispatch(closeMenuAction)
   }
 }
 

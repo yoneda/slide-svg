@@ -1,10 +1,10 @@
 import React from 'react';
 
-const SettingButton = ({ isProgressBarAppeared }) => {
-  console.log(isProgressBarAppeared);
+const SettingButton = ({ isMenuOpen, openMenuHandler, closeMenuHandler }) => {
+  const targetHandler = isMenuOpen?closeMenuHandler:openMenuHandler;
   return(
     <div>
-      <button onClick={movePrevSlideHandler}>prev</button>
+      <button onClick={targetHandler}>menu</button>
     </div>
   )
 }

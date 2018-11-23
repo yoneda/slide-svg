@@ -1,4 +1,4 @@
-import { OPEN_MENU, CLOSE_MENU, MOVE_NEXT_SLIDE, MOVE_PREV_SLIDE, CONVERT_MARKDOWN_TO_HTML, CHANGE_PROGRESSBAR_ON, CHANGE_PROGRESSBAR_OFF, READ_RAWMARKDOWN_SUCCESS } from "../constants/constants.js";
+import { OPEN_MENU, CLOSE_MENU, MOVE_NEXT_SLIDE, MOVE_PREV_SLIDE, CONVERT_MARKDOWN_TO_HTML, CHANGE_PROGRESSBAR_ON, CHANGE_PROGRESSBAR_OFF, CREATE_SLIDES} from "../constants/constants.js";
 
 const reducer = (state={},action)=>{
   if(action.type===MOVE_NEXT_SLIDE){
@@ -9,7 +9,6 @@ const reducer = (state={},action)=>{
       isProgressBarAppeared: state.isProgressBarAppeared,
       index: nowIndex,
       slides: state.slides,
-      rawMarkdown: state.rawMarkdown
     }
     return newState;
   }
@@ -21,7 +20,6 @@ const reducer = (state={},action)=>{
       isProgressBarAppeared: state.isProgressBarAppeared,
       index: nowIndex,
       slides: state.slides,
-      rawMarkdown: state.rawMarkdown
     }
     return newState;
   }
@@ -31,7 +29,6 @@ const reducer = (state={},action)=>{
       isProgressBarAppeared: true,
       index: state.index,
       slides: state.slides,
-      rawMarkdown: state.rawMarkdown
     }
     return newState;
   }
@@ -41,28 +38,43 @@ const reducer = (state={},action)=>{
       isProgressBarAppeared: false,
       index: state.index,
       slides: state.slides,
-      rawMarkdown: state.rawMarkdown
     }
     return newState;
   }
-  else if(action.type===READ_RAWMARKDOWN_SUCCESS){
-    const rawMarkdown = action.payload.raw;
+  else if(action.type===CREATE_SLIDES){
+    const htmlList = action.payload.htmlList;
     const newState = {
       isMenuOpen: state.isMenuOpen,
-      isProgressBarAppeared: false,
+      isProgressBarAppeared: state.isProgressBarAppeared,
+      index: state.index,
+      slides: htmlList,
+    }
+    return newState;
+  }
+  else if(action.type===OPEN_MENU){
+    const newState = {
+      isMenuOpen: true,
+      isProgressBarAppeared: state.isProgressBarAppeared,
       index: state.index,
       slides: state.slides,
-      rawMarkdown: rawMarkdown
+    }
+    return newState;
+  }
+  else if(action.type===CLOSE_MENU){
+    const newState = {
+      isMenuOpen: false,
+      isProgressBarAppeared: state.isProgressBarAppeared,
+      index: state.index,
+      slides: state.slides,
     }
     return newState;
   }
   else {
     const initialState = {
-      isMenuOpen: true,
+      isMenuOpen: false,
       isProgressBarAppeared: true,
       index: 0,
-      slides: ["aaa","bbb","ccc","ddd"],
-      rawMarkdown: "## aaa\n --- ## bbb\n --- ccc\n --- ddd\n"
+      slides: [],
     }
     return initialState;
   }

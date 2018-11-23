@@ -5,11 +5,19 @@ import App from './containers/App.js';
 import reducer from "./reducers/reducer.js";
 import { createStore } from "redux";
 import { Provider } from 'react-redux'
-import { readRawMarkdownSuccess } from "./actions/actions.js";
+import { getCreateSlides } from "./actions/actions.js";
+import { convertMarkdownToHtml } from "./utils/convertMarkdownToHtml";
+import markdownPath from "./content.md";
 
 const store = createStore(reducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
-store.dispatch(readRawMarkdownSuccess("## xxx\n## yyy\n ## zzz\n"));
+fetch(markdownPath)
+.then(res=>res.text())
+.then(text=>{
+    const htmlList = convertMarkdownToHtml(text);
+    store.dispatch(getCreateSlides(htmlList));
+})
+
 
 render(
     <Provider store={store}>

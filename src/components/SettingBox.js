@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SettingBox = ({ isProgressBarAppeared, changeProgressBarOnHandler, changeProgressBarOffHandler}) => {
+const SettingBox = ({ isProgressBarAppeared, changeProgressBarOnHandler, changeProgressBarOffHandler }) => {
   return(
     <div>
       <p>progress bar?</p>
