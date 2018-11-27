@@ -1,4 +1,4 @@
-import { OPEN_MENU, CLOSE_MENU, MOVE_NEXT_SLIDE, MOVE_PREV_SLIDE, CONVERT_MARKDOWN_TO_HTML, CHANGE_PROGRESSBAR_ON, CHANGE_PROGRESSBAR_OFF, CREATE_SLIDES} from "../constants/constants.js";
+import { OPEN_MENU, CLOSE_MENU, MOVE_NEXT_SLIDE, MOVE_PREV_SLIDE, CHANGE_PROGRESSBAR_ON, CHANGE_PROGRESSBAR_OFF, CHANGE_THEME_WHITE, CHANGE_THEME_BLACK, CHANGE_THEME_CLEARSKY, CREATE_SLIDES} from "../constants/constants.js";
 
 export const getMoveNextSlide = () => {
   return {
@@ -33,6 +33,24 @@ export const getOpenMenu = () => {
 export const getCloseMenu = () => {
   return {
     type: CLOSE_MENU
+  }
+}
+
+export const getChangeThemeWhite = () => {
+  return{
+    type: CHANGE_THEME_WHITE
+  }
+}
+
+export const getChangeThemeBlack = () => {
+  return{
+    type: CHANGE_THEME_BLACK
+  }
+}
+
+export const getChangeThemeClearsky = () => {
+  return{
+    type: CHANGE_THEME_CLEARSKY
   }
 }
 
