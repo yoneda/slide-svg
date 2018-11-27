@@ -36,7 +36,7 @@ export const getCloseMenu = () => {
   }
 }
 
-export const getChangeThemeWhite = () => {
+export const getChangeThemeSimple = () => {
   return{
     type: CHANGE_THEME_SIMPLE
   }
@@ -48,7 +48,7 @@ export const getChangeThemeRed = () => {
   }
 }
 
-export const getChangeThemeBlack = () => {
+export const getChangeThemeDark = () => {
   return{
     type: CHANGE_THEME_DARK
   }
