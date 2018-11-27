@@ -1,13 +1,14 @@
 import React from 'react';
 import { THEME_WHITE, THEME_RED, THEME_BLACK, THEME_CLEARSKY } from "../constants/constants.js";
 
-const SettingThemeBox = ({ theme, selectWhiteHandler, selectBlackHandler, selectRedHandler, selectClearSkyHandler }) => {
+const SettingThemeBox = ({ theme, selectWhiteHandler, selectBlackHandler, selectRedHandler, selectClearSkyHandler, closeMenuHandler}) => {
   const changeTheme = (event) => {
     const value = event.target.value;
     if(value===THEME_BLACK) selectBlackHandler();
     else if(value===THEME_RED) selectRedHandler();
     else if(value===THEME_WHITE) selectWhiteHandler();
     else if(value===THEME_CLEARSKY) selectClearSkyHandler();
+    closeMenuHandler();
   }
   return(
     <div>

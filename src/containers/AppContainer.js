@@ -42,7 +42,7 @@ const AppContainer = ({ isMenuOpen, isProgressBarAppeared, theme, index, slides,
         isMenuOpen?
         <SettingBox
           settingProgressBox={<SettingProgressBox isProgressBarAppeared={isProgressBarAppeared} changeProgressBarOnHandler={changeProgressBarOnHandler} changeProgressBarOffHandler={changeProgressBarOffHandler} />}
-          settingThemeBox={<SettingThemeBox theme={theme} selectWhiteHandler={changeThemeWhiteHandler} selectRedHandler={changeThemeRedHandler} selectBlackHandler={changeThemeBlackHandler} selectClearSkyHandler={changeThemeClearskyHandler} />}
+          settingThemeBox={<SettingThemeBox theme={theme} selectWhiteHandler={changeThemeWhiteHandler} selectRedHandler={changeThemeRedHandler} selectBlackHandler={changeThemeBlackHandler} selectClearSkyHandler={changeThemeClearskyHandler} closeMenuHandler={closeMenuHandler} />}
         />:""
       }
       <Background color={themeColor.backgroundColor} />
