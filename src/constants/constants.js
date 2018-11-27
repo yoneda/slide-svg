@@ -14,3 +14,8 @@ export const CHANGE_THEME_CLEARSKY = "CHANGE_THEME_CLEARSKY";
 export const THEME_WHITE = "THEME_WHITE";
 export const THEME_BLACK = "THEME_BLACK";
 export const THEME_CLEARSKY = "THEME_CLEARSKY";
+
+// 色のための定数
+export const COLOR_DARKRED = "darkred";
+export const COLOR_WHEAT = "wheat";
+export const COLOR_SKYBLUE = "skyblue";

@@ -3,6 +3,14 @@
     color: darkred;
 }
 
+.ThemeBlack h4{
+    color: darkred;
+}
+
+.ThemeBlack li{
+    color: darkred;
+}
+
 .ThemeBlack p{
     color: darkred;
 }
@@ -11,11 +19,27 @@
     color: skyblue;
 }
 
+.ThemeClearSky h4{
+    color: skyblue;
+}
+
+.ThemeClearSky li{
+    color: skyblue;
+}
+
 .ThemeClearSky p{
     color: skyblue;
 }
 
 .ThemeWhite h3{
+    color: wheat;
+}
+
+.ThemeWhite h4{
+    color: wheat;
+}
+
+.ThemeWhite li{
     color: wheat;
 }
 

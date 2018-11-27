@@ -9,10 +9,13 @@ import SettingThemeBox from "../components/SettingThemeBox.js";
 import ProgressBar from "../components/ProgressBar.js";
 import Buttons from "../components/Buttons.js";
 import { getMoveNextSlide, getMovePrevSlide, getChangeProgressBarOn, getChangeProgressBarOff, getOpenMenu, getCloseMenu, getChangeThemeWhite, getChangeThemeBlack, getChangeThemeClearsky } from "../actions/actions.js";
+import { getThemeMainColor } from "../utils/getThemeMainColor";
 import styles from './AppContainer.module.css';
 
 const AppContainer = ({ isMenuOpen, isProgressBarAppeared, theme, index, slides, moveNextSlideHandler, movePrevSlideHandler, changeProgressBarOnHandler, changeProgressBarOffHandler, openMenuHandler, closeMenuHandler, changeThemeWhiteHandler, changeThemeBlackHandler, changeThemeClearskyHandler }) => {
   const parcentage = (index/(slides.length-1))*100;
+  const progressBarColor = getThemeMainColor(theme);
+  if(theme)
   return(
     <div>
     <div className={styles.AppContainer}>
@@ -24,7 +27,7 @@ const AppContainer = ({ isMenuOpen, isProgressBarAppeared, theme, index, slides,
         ]
       } />
       <Slide text={slides[index]} theme={theme} />
-      {isProgressBarAppeared?<ProgressBar parcentage={parcentage} color={"purple"}/>:""}
+      {isProgressBarAppeared?<ProgressBar parcentage={parcentage} color={progressBarColor}/>:""}
       {isMenuOpen?<SettingProgressBox isProgressBarAppeared={isProgressBarAppeared} changeProgressBarOnHandler={changeProgressBarOnHandler} changeProgressBarOffHandler={changeProgressBarOffHandler} />:""}
       {isMenuOpen?<SettingThemeBox theme={theme} selectWhiteHandler={changeThemeWhiteHandler} selectBlackHandler={changeThemeBlackHandler} selectClearSkyHandler={changeThemeClearskyHandler} />:""}
     </div>
