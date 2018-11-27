@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './ProgressBar.module.css';
 
-const ProgressBar = ({parcentage}) => {
-  const style = {width: `${parcentage}%`};
+const ProgressBar = ({parcentage,color}) => {
+  const style = {width: `${parcentage}%`, backgroundColor: color};
   return(
     <div className={styles.ProgressBar} style={style}>
     </div>

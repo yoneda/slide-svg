@@ -24,7 +24,7 @@ const AppContainer = ({ isMenuOpen, isProgressBarAppeared, theme, index, slides,
         ]
       } />
       <Slide text={slides[index]} theme={theme} />
-      {isProgressBarAppeared?<ProgressBar parcentage={parcentage} />:""}
+      {isProgressBarAppeared?<ProgressBar parcentage={parcentage} color={"purple"}/>:""}
       {isMenuOpen?<SettingProgressBox isProgressBarAppeared={isProgressBarAppeared} changeProgressBarOnHandler={changeProgressBarOnHandler} changeProgressBarOffHandler={changeProgressBarOffHandler} />:""}
       {isMenuOpen?<SettingThemeBox theme={theme} selectWhiteHandler={changeThemeWhiteHandler} selectBlackHandler={changeThemeBlackHandler} selectClearSkyHandler={changeThemeClearskyHandler} />:""}
     </div>
