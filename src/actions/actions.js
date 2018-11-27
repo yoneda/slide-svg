@@ -1,4 +1,4 @@
-import { OPEN_MENU, CLOSE_MENU, MOVE_NEXT_SLIDE, MOVE_PREV_SLIDE, CHANGE_PROGRESSBAR_ON, CHANGE_PROGRESSBAR_OFF, CHANGE_THEME_SIMPLE, CHANGE_THEME_RED, CHANGE_THEME_DARK, CHANGE_THEME_CLEARSKY, CREATE_SLIDES} from "../constants/constants.js";
+import { OPEN_MENU, CLOSE_MENU, MOVE_NEXT_SLIDE, MOVE_PREV_SLIDE, CHANGE_PROGRESSBAR_ON, CHANGE_PROGRESSBAR_OFF, CHANGE_THEME_SIMPLE, CHANGE_THEME_DARK, CHANGE_THEME_CLEARSKY, CREATE_SLIDES} from "../constants/constants.js";
 
 export const getMoveNextSlide = () => {
   return {
@@ -39,12 +39,6 @@ export const getCloseMenu = () => {
 export const getChangeThemeSimple = () => {
   return{
     type: CHANGE_THEME_SIMPLE
-  }
-}
-
-export const getChangeThemeRed = () => {
-  return{
-    type: CHANGE_THEME_RED
   }
 }
 
