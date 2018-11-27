@@ -10,14 +10,22 @@ import SettingThemeBox from "../components/SettingThemeBox.js";
 import ProgressBar from "../components/ProgressBar.js";
 import Buttons from "../components/Buttons.js";
 import Background from "../components/Background.js";
-import { getMoveNextSlide, getMovePrevSlide, getChangeProgressBarOn, getChangeProgressBarOff, getOpenMenu, getCloseMenu, getChangeThemeWhite, getChangeThemeBlack, getChangeThemeClearsky } from "../actions/actions.js";
-import { getThemeMainColor } from "../utils/getThemeMainColor";
+import { getMoveNextSlide, getMovePrevSlide, getChangeProgressBarOn, getChangeProgressBarOff, getOpenMenu, getCloseMenu, getChangeThemeWhite, getChangeThemeBlack, getChangeThemeRed, getChangeThemeClearsky } from "../actions/actions.js";
+import ThemeRed from "../themes/red.json";
+import ThemeWhite from "../themes/white.json";
+import ThemeBlack from "../themes/black.json";
+import ThemeClearsky from "../themes/clearsky.json";
+import { THEME_WHITE, THEME_RED, THEME_BLACK, THEME_CLEARSKY } from "../constants/constants.js";
 import styles from './AppContainer.module.css';
 
-const AppContainer = ({ isMenuOpen, isProgressBarAppeared, theme, index, slides, moveNextSlideHandler, movePrevSlideHandler, changeProgressBarOnHandler, changeProgressBarOffHandler, openMenuHandler, closeMenuHandler, changeThemeWhiteHandler, changeThemeBlackHandler, changeThemeClearskyHandler }) => {
+const AppContainer = ({ isMenuOpen, isProgressBarAppeared, theme, index, slides, moveNextSlideHandler, movePrevSlideHandler, changeProgressBarOnHandler, changeProgressBarOffHandler, openMenuHandler, closeMenuHandler, changeThemeWhiteHandler, changeThemeBlackHandler, changeThemeRedHandler, changeThemeClearskyHandler }) => {
   const parcentage = (index/(slides.length-1))*100;
-  const progressBarColor = getThemeMainColor(theme);
-  if(theme)
+  let themeColor = {};
+  if(theme===THEME_WHITE) themeColor = ThemeWhite;
+  else if(theme===THEME_RED) themeColor = ThemeRed;
+  else if(theme===THEME_BLACK) themeColor = ThemeBlack;
+  else if(theme===THEME_CLEARSKY) themeColor = ThemeClearsky;
+
   return(
     <div>
     <div className={styles.AppContainer}>
@@ -28,16 +36,16 @@ const AppContainer = ({ isMenuOpen, isProgressBarAppeared, theme, index, slides,
           <SettingButton key={3} isMenuOpen={isMenuOpen} openMenuHandler={openMenuHandler} closeMenuHandler={closeMenuHandler} />
         ]
       } />
-      <Slide text={slides[index]} theme={theme} />
-      {isProgressBarAppeared?<ProgressBar parcentage={parcentage} color={progressBarColor}/>:""}
+      <Slide text={slides[index]} color={themeColor.textColor} />
+      {isProgressBarAppeared?<ProgressBar parcentage={parcentage} color={themeColor.progressbarColor}/>:""}
       {
         isMenuOpen?
         <SettingBox
           settingProgressBox={<SettingProgressBox isProgressBarAppeared={isProgressBarAppeared} changeProgressBarOnHandler={changeProgressBarOnHandler} changeProgressBarOffHandler={changeProgressBarOffHandler} />}
-          settingThemeBox={<SettingThemeBox theme={theme} selectWhiteHandler={changeThemeWhiteHandler} selectBlackHandler={changeThemeBlackHandler} selectClearSkyHandler={changeThemeClearskyHandler} />}
+          settingThemeBox={<SettingThemeBox theme={theme} selectWhiteHandler={changeThemeWhiteHandler} selectRedHandler={changeThemeRedHandler} selectBlackHandler={changeThemeBlackHandler} selectClearSkyHandler={changeThemeClearskyHandler} />}
         />:""
       }
-      <Background />
+      <Background color={themeColor.backgroundColor} />
     </div>
     </div>
   )
@@ -64,6 +72,7 @@ const mapDispatchToProps = dispatch => {
   const closeMenuAction = getCloseMenu();
   const changeThemeBlackAction = getChangeThemeBlack();
   const changeThemeWhiteAction = getChangeThemeWhite();
+  const changeThemeRedAction = getChangeThemeRed();
   const changeThemeClearskyAction = getChangeThemeClearsky();
   return{
     moveNextSlideHandler : () => dispatch(moveNextSlideAction),
@@ -74,6 +83,7 @@ const mapDispatchToProps = dispatch => {
     closeMenuHandler : () => dispatch(closeMenuAction),
     changeThemeBlackHandler  : () => dispatch(changeThemeBlackAction),
     changeThemeWhiteHandler  : () => dispatch(changeThemeWhiteAction),
+    changeThemeRedHandler  : () => dispatch(changeThemeRedAction),
     changeThemeClearskyHandler  : () => dispatch(changeThemeClearskyAction),
   }
 }
