@@ -15,15 +15,15 @@ import ThemeRed from "../themes/red.json";
 import ThemeWhite from "../themes/white.json";
 import ThemeBlack from "../themes/black.json";
 import ThemeClearsky from "../themes/clearsky.json";
-import { THEME_WHITE, THEME_RED, THEME_BLACK, THEME_CLEARSKY } from "../constants/constants.js";
+import { THEME_SIMPLE, THEME_RED, THEME_DARK, THEME_CLEARSKY } from "../constants/constants.js";
 import styles from './AppContainer.module.css';
 
 const AppContainer = ({ isMenuOpen, isProgressBarAppeared, theme, index, slides, moveNextSlideHandler, movePrevSlideHandler, changeProgressBarOnHandler, changeProgressBarOffHandler, openMenuHandler, closeMenuHandler, changeThemeWhiteHandler, changeThemeBlackHandler, changeThemeRedHandler, changeThemeClearskyHandler }) => {
   const parcentage = (index/(slides.length-1))*100;
   let themeColor = {};
-  if(theme===THEME_WHITE) themeColor = ThemeWhite;
+  if(theme===THEME_SIMPLE) themeColor = ThemeWhite;
   else if(theme===THEME_RED) themeColor = ThemeRed;
-  else if(theme===THEME_BLACK) themeColor = ThemeBlack;
+  else if(theme===THEME_DARK) themeColor = ThemeBlack;
   else if(theme===THEME_CLEARSKY) themeColor = ThemeClearsky;
 
   return(

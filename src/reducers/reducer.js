@@ -1,5 +1,5 @@
-import { OPEN_MENU, CLOSE_MENU, MOVE_NEXT_SLIDE, MOVE_PREV_SLIDE, CHANGE_PROGRESSBAR_ON, CHANGE_PROGRESSBAR_OFF, CHANGE_THEME_WHITE, CHANGE_THEME_RED, CHANGE_THEME_BLACK, CHANGE_THEME_CLEARSKY, CREATE_SLIDES} from "../constants/constants.js";
-import { THEME_WHITE, THEME_RED, THEME_BLACK, THEME_CLEARSKY } from "../constants/constants.js";
+import { OPEN_MENU, CLOSE_MENU, MOVE_NEXT_SLIDE, MOVE_PREV_SLIDE, CHANGE_PROGRESSBAR_ON, CHANGE_PROGRESSBAR_OFF, CHANGE_THEME_SIMPLE, CHANGE_THEME_RED, CHANGE_THEME_DARK, CHANGE_THEME_CLEARSKY, CREATE_SLIDES} from "../constants/constants.js";
+import { THEME_SIMPLE, THEME_RED, THEME_DARK, THEME_CLEARSKY } from "../constants/constants.js";
 
 const reducer = (state={},action)=>{
   if(action.type===MOVE_NEXT_SLIDE){
@@ -77,11 +77,11 @@ const reducer = (state={},action)=>{
     }
     return newState;
   }
-  else if(action.type===CHANGE_THEME_WHITE){
+  else if(action.type===CHANGE_THEME_SIMPLE){
     const newState = {
       isMenuOpen: state.isMenuOpen,
       isProgressBarAppeared: state.isProgressBarAppeared,
-      theme: THEME_WHITE,
+      theme: THEME_SIMPLE,
       index: state.index,
       slides: state.slides,
     }
@@ -97,11 +97,11 @@ const reducer = (state={},action)=>{
     }
     return newState;
   }
-  else if(action.type===CHANGE_THEME_BLACK){
+  else if(action.type===CHANGE_THEME_DARK){
     const newState = {
       isMenuOpen: state.isMenuOpen,
       isProgressBarAppeared: state.isProgressBarAppeared,
-      theme: THEME_BLACK,
+      theme: THEME_DARK,
       index: state.index,
       slides: state.slides,
     }
@@ -121,7 +121,7 @@ const reducer = (state={},action)=>{
     const initialState = {
       isMenuOpen: false,
       isProgressBarAppeared: true,
-      theme: THEME_WHITE,
+      theme: THEME_SIMPLE,
       index: 0,
       slides: [],
     }
