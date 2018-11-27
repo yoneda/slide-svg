@@ -8,6 +8,7 @@ import SettingProgressBox from "../components/SettingProgressBox.js";
 import SettingThemeBox from "../components/SettingThemeBox.js";
 import ProgressBar from "../components/ProgressBar.js";
 import Buttons from "../components/Buttons.js";
+import Background from "../components/Background.js";
 import { getMoveNextSlide, getMovePrevSlide, getChangeProgressBarOn, getChangeProgressBarOff, getOpenMenu, getCloseMenu, getChangeThemeWhite, getChangeThemeBlack, getChangeThemeClearsky } from "../actions/actions.js";
 import { getThemeMainColor } from "../utils/getThemeMainColor";
 import styles from './AppContainer.module.css';
@@ -30,6 +31,7 @@ const AppContainer = ({ isMenuOpen, isProgressBarAppeared, theme, index, slides,
       {isProgressBarAppeared?<ProgressBar parcentage={parcentage} color={progressBarColor}/>:""}
       {isMenuOpen?<SettingProgressBox isProgressBarAppeared={isProgressBarAppeared} changeProgressBarOnHandler={changeProgressBarOnHandler} changeProgressBarOffHandler={changeProgressBarOffHandler} />:""}
       {isMenuOpen?<SettingThemeBox theme={theme} selectWhiteHandler={changeThemeWhiteHandler} selectBlackHandler={changeThemeBlackHandler} selectClearSkyHandler={changeThemeClearskyHandler} />:""}
+      <Background />
     </div>
     </div>
   )
