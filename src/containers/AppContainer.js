@@ -4,6 +4,7 @@ import Slide from "../components/Slide.js";
 import NextButton from "../components/NextButton.js";
 import PrevButton from "../components/PrevButton.js";
 import SettingButton from "../components/SettingButton.js";
+import SettingBox from "../components/SettingBox.js";
 import SettingProgressBox from "../components/SettingProgressBox.js";
 import SettingThemeBox from "../components/SettingThemeBox.js";
 import ProgressBar from "../components/ProgressBar.js";
@@ -29,8 +30,13 @@ const AppContainer = ({ isMenuOpen, isProgressBarAppeared, theme, index, slides,
       } />
       <Slide text={slides[index]} theme={theme} />
       {isProgressBarAppeared?<ProgressBar parcentage={parcentage} color={progressBarColor}/>:""}
-      {isMenuOpen?<SettingProgressBox isProgressBarAppeared={isProgressBarAppeared} changeProgressBarOnHandler={changeProgressBarOnHandler} changeProgressBarOffHandler={changeProgressBarOffHandler} />:""}
-      {isMenuOpen?<SettingThemeBox theme={theme} selectWhiteHandler={changeThemeWhiteHandler} selectBlackHandler={changeThemeBlackHandler} selectClearSkyHandler={changeThemeClearskyHandler} />:""}
+      {
+        isMenuOpen?
+        <SettingBox
+          settingProgressBox={<SettingProgressBox isProgressBarAppeared={isProgressBarAppeared} changeProgressBarOnHandler={changeProgressBarOnHandler} changeProgressBarOffHandler={changeProgressBarOffHandler} />}
+          settingThemeBox={<SettingThemeBox theme={theme} selectWhiteHandler={changeThemeWhiteHandler} selectBlackHandler={changeThemeBlackHandler} selectClearSkyHandler={changeThemeClearskyHandler} />}
+        />:""
+      }
       <Background />
     </div>
     </div>

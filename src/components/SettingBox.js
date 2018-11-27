@@ -1,11 +1,11 @@
 import React from 'react';
+import styles from './SettingBox.module.css';
 
-const SettingBox = ({ isProgressBarAppeared, changeProgressBarOnHandler, changeProgressBarOffHandler }) => {
+const SettingBox = ({settingProgressBox, settingThemeBox}) => {
   return(
-    <div>
-      <p>progress bar?</p>
-      <p><input type="radio" checked={isProgressBarAppeared===true} onChange={changeProgressBarOnHandler} />on
-      <input type="radio" checked={isProgressBarAppeared===false} onChange={changeProgressBarOffHandler} />off</p>
+    <div className={styles.SettingBox}>
+    {settingProgressBox}
+    {settingThemeBox}
     </div>
   )
 }

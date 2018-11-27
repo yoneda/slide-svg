@@ -1,0 +1,10 @@
+
+.SettingBox{
+  width:120px;
+  height:160px;
+  position:absolute;
+  right: 0px;
+  top: 65px;
+  background-color: white;
+  z-index: 0;
+}
