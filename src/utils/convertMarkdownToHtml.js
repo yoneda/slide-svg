@@ -5,12 +5,12 @@ import marked from "marked";
  * @param {string} raw - markdown
  * @return {string[]} htmlList - htmlの文字列リスト
  */
-export const convertMarkdownToHtml = (raw) => {
-  marked.setOptions({headerIds:false});
+export const convertMarkdownToHtml = raw => {
+  marked.setOptions({ headerIds: false });
   const raws = raw.split("---");
-  const htmls = raws.map((markdown)=>{
+  const htmls = raws.map(markdown => {
     const html = marked(markdown);
-    return html
-  })
+    return html;
+  });
   return htmls;
-}
+};

@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import AppContainer from "./AppContainer.js";
 import EmptyContainerForEventListener from "./EmptyContainerForEventListener.js";
 
@@ -7,6 +7,6 @@ const App = () => (
     <AppContainer />
     <EmptyContainerForEventListener />
   </div>
-)
+);
 
-export default App
+export default App;

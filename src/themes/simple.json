@@ -1,5 +1,5 @@
 {
-	"textColor" : "#000000",
-	"progressbarColor" : "#FF0000",
-	"backgroundColor" : "#FFFFFF"
+  "textColor": "#000000",
+  "progressbarColor": "#FF0000",
+  "backgroundColor": "#FFFFFF"
 }
