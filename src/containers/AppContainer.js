@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import Slide from "../components/Slide.js";
+import ProgramableSlide from "../components/ProgramableSlide.js";
 import NextButton from "../components/NextButton.js";
 import PrevButton from "../components/PrevButton.js";
 import SettingButton from "../components/SettingButton.js";
@@ -65,7 +66,8 @@ const AppContainer = ({
             />
           ]}
         />
-        <Slide text={slides[index]} color={themeColor.textColor} />
+        {/* <Slide text={slides[index]} color={themeColor.textColor} /> */}
+        <ProgramableSlide code={"<p>aaa</p>"} />
         {isProgressBarAppeared ? (
           <ProgressBar parcentage={parcentage} color={themeColor.progressbarColor} />
         ) : (
