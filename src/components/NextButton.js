@@ -6,7 +6,10 @@ const NextButton = ({ moveNextSlideHandler }) => {
     width: "55px",
     height: "55px",
     backgroundImage: `url(${next})`,
-    marginRight: "10px",
+    backgroundColor: "transparent",
+    cursor: "pointer",
+    border: "none",
+    outline: "none",
   }
   return(
     <div>
