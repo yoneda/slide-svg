@@ -1,2 +1,30 @@
 .Slide{
+    display: flex;
+    align-items: center;
+    height:100%;
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 0;
+}
+
+.Content{
+    margin-left: 100px;
+    display: inline;
+}
+
+h2{
+    margin:0px;
+    font-size: 100px;
+}
+
+h3{
+    margin:0px;
+    font-size: 80px;
+}
+
+li{
+    font-size: 32px;
 }

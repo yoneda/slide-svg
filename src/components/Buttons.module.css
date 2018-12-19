@@ -3,4 +3,5 @@
   display: flex;
   right: 16px;
   bottom: 26px;
+  z-index: 2;
 }
