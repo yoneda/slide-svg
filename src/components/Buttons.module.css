@@ -1,7 +1,6 @@
 .Buttons {
-  width: 50px;
-  height: 65px;
   position: absolute;
-  right: 0;
-  top: 0;
+  display: flex;
+  right: 10px;
+  bottom: 10px;
 }

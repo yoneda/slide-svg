@@ -4,7 +4,6 @@ import Slide from "../components/Slide.js";
 import ProgramableSlide from "../components/ProgramableSlide.js";
 import NextButton from "../components/NextButton.js";
 import PrevButton from "../components/PrevButton.js";
-import SettingButton from "../components/SettingButton.js";
 import SettingBox from "../components/SettingBox.js";
 import SettingProgressBox from "../components/SettingProgressBox.js";
 import SettingThemeBox from "../components/SettingThemeBox.js";
@@ -28,6 +27,8 @@ import {
   getChangeThemeRed,
   getChangeThemeClearsky
 } from "../actions/actions.js";
+import { convertSignToHtml } from "../utils/convertSighToHtml";
+import { convertMarkdownToHtml } from "../utils/convertMarkdownToHtml";
 
 const AppContainer = ({
   isMenuOpen,
@@ -51,25 +52,32 @@ const AppContainer = ({
   else if (theme === THEME_DARK) themeColor = ThemeDark;
   else if (theme === THEME_CLEARSKY) themeColor = ThemeClearsky;
 
+  // コーディング付きのスライド / 通常のスライド の出し分け
+  const converted = slides[index]?slides[index].replace("<p>","").replace("</p>","").replace("\n",""):"";
+  let isNormalSlide = true;
+  let htmlCode = "";
+  console.log(converted);
+  if(converted.indexOf("CODE")===0){
+    isNormalSlide = false;
+    htmlCode = convertSignToHtml(converted);
+  }
+
   return (
     <div>
       <div className={styles.AppContainer}>
         <Buttons
           buttons={[
-            <NextButton key={1} moveNextSlideHandler={moveNextSlideHandler} />,
             <PrevButton key={2} movePrevSlideHandler={movePrevSlideHandler} />,
-            <SettingButton
-              key={3}
-              isMenuOpen={isMenuOpen}
-              openMenuHandler={openMenuHandler}
-              closeMenuHandler={closeMenuHandler}
-            />
+            <NextButton key={1} moveNextSlideHandler={moveNextSlideHandler} />,
           ]}
         />
-        {/* <Slide text={slides[index]} color={themeColor.textColor} /> */}
-        <ProgramableSlide code={"<p>aaa</p>"} />
+        {isNormalSlide?
+          <Slide text={slides[index]} color={themeColor.textColor} />
+          :
+          <ProgramableSlide code={htmlCode} />
+        }
         {isProgressBarAppeared ? (
-          <ProgressBar parcentage={parcentage} color={themeColor.progressbarColor} />
+          <ProgressBar parcentage={parcentage} color={"#ff1493"} />
         ) : (
           ""
         )}

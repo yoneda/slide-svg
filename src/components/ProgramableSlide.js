@@ -6,6 +6,11 @@ class ProgramableSlide extends React.Component{
     this.state = {localCode: this.props.code};
     this.codeUpdateHandler = this.codeUpdateHandler.bind(this);
   }
+  componentWillUpdate(nextprops){
+    if(this.state.localCode !== nextprops.code){
+      this.setState({localCode:nextprops.code});
+    }
+  }
   codeUpdateHandler(event){
     const newCode = event.target.value;
     this.setState({localCode:newCode});
