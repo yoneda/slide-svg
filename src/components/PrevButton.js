@@ -7,6 +7,7 @@ const PrevButton = ({ movePrevSlideHandler }) => {
     width: "55px",
     height: "55px",
     backgroundImage: `url(${prev})`,
+    marginRight: "12px",
   }
   return(
     <div>
