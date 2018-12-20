@@ -16,6 +16,7 @@ const EmptyContainerForEventListener = ({
   closeMenuHandler
 }) => {
   const keyfunction = event => {
+    /*
     // esc が押された
     if (event.keyCode === 27) {
       isMenuOpen === true ? closeMenuHandler() : openMenuHandler();
@@ -27,7 +28,7 @@ const EmptyContainerForEventListener = ({
     // 右矢印が押された
     else if (event.keyCode === 39) {
       moveNextSlideHandler();
-    }
+    }*/
   };
   useEffect(() => {
     document.addEventListener("keydown", keyfunction);

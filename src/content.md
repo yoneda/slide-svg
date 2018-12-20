@@ -1,19 +1,27 @@
 
+## SVG でグラフを描くよ！
+
+2018年12月20日(木) 13:00〜
+フロントエンドLT会
+
+---
+
+## SVG とは
+
+---
+
+### SVG とは
+* タグを追加するだけでイラスト描けるよ！
+* いくら拡大しても劣化しないよ！
+* イラストがjavascript で操作できるよ！
+
+---
+
 ## SVG を描いてみよう
 
 ---
 
-### SVGとは
-* タグを描くだけでイラスト描けるよ
-* 拡大しても劣化しないよ
-* イラストがjavascriptで操作できるよ
-
----
-
-### 自己紹介
-
-2018 年 11 月 22 日 13:00-
-フロントエンド LT 会
+## 線を描いてみる
 
 ---
 
@@ -21,78 +29,74 @@ CODEA
 
 ---
 
+## 四角を描いてみる
+
+---
+
 CODEB
 
 ---
 
-#### outline
-
-- どのように育ったか
-- 趣味
-- どんな発表をしたいか
+## 円を描いてみる
 
 ---
 
-### どのように育ったか
+CODEC
 
 ---
 
-#### どのように育ったか
-
-- 兵庫県加古川市出身
-- 滋賀県の大学に進学
-- 大学では電子回路の専攻、大学院からプログラミング
-- 家が大好き
+## SVG のアニメーション
 
 ---
 
-![](https://image.ibb.co/jrHCqV/kakogawa.jpg"kakogawa")
+CODED
 
 ---
 
-![](https://image.ibb.co/hJ3kAV/dog1.jpg"dog1")
+## CSS でアニメーション
 
 ---
 
-![](https://image.ibb.co/kotcqV/dog2.jpg"dog2")
+CODEE
 
 ---
 
-![](https://image.ibb.co/buS3VV/univercity.jpg"univercity")
+## アニメーションの基本
+---
+
+## アニメーションの同期
+---
+
+## パスに沿ったアニメーション
 
 ---
 
-### 趣味
+## SVG でグラフを描く
 
 ---
 
-#### 趣味
-
-- youtuber の動画をみる、東海オンエアなど
-- amazon prime で TV ドラマ見る、ゲームオブスローンズ
-- 洋服買いに行く
-- お酒飲む
+###  SVG でグラフを描く
+* グラフィック作成ソフトウェアをつかう
+* illustrator や svg-editなど
+* グリットをつけて座標の値が揃うように
 
 ---
 
-![](https://image.ibb.co/bSTXPq/tokai.jpg"tokai")
+## line chart
 
 ---
 
-![](https://image.ibb.co/bwX3VV/gameofthrones.jpg"gameofthrones")
+## bar chart
 
 ---
 
-### どんな発表をしたいか
+## pie chart
 
 ---
 
-#### どんな発表をしたいか
-
-- SVG
-- CSS デザイン
-- React だけでなくてフロントエンド全般
-
+### 参考資料
+* SVGエッセンシャルズ 第2版
+* SVGコーディングの基本
 ---
 
-ご清聴ありがとうございました
+## ご清聴ありがとうございました

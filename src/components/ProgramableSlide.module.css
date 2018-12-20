@@ -1,0 +1,20 @@
+.EditBox{
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    z-index: 0;
+    background-color:#ccc;
+    font-size:20px;
+}
+
+.PreviewBox{
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    z-index: 0;
+    background-color: white;
+}

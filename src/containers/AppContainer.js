@@ -56,7 +56,6 @@ const AppContainer = ({
   const converted = slides[index]?slides[index].replace("<p>","").replace("</p>","").replace("\n",""):"";
   let isNormalSlide = true;
   let htmlCode = "";
-  console.log(converted);
   if(converted.indexOf("CODE")===0){
     isNormalSlide = false;
     htmlCode = convertSignToHtml(converted);
