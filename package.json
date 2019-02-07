@@ -15,7 +15,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -30,5 +30,5 @@
     "gh-pages": "^2.0.1",
     "prettier": "^1.15.3"
   },
-  "homepage" : "http://yoneda.github.io/slide-svg"
+  "homepage": "http://yoneda.github.io/slide-svg"
 }
